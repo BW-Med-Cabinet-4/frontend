@@ -1,51 +1,51 @@
 import React, {useState} from 'react';
+import styled from 'styled-components'
+ import {Formik, Form, Field, ErrorMessage} from 'formik'
 
 const SignUpForm = () => {
 
-    const [user, setUser] = useState({
-        first: '',
-        last: '',
-        email: ''
-    })
-
-    const [team,setTeam] = useState([])
-
-    const handleChange = (e) => {
-        setUser({...user, [e.target.name] : e.target.value})
-        console.log(user)
-    }
+    const [user, setUser] = useState([])
 
     const newUser = u => {
         const member = {
-            first: u.first,
-            last: u.last,
-            email: u.email
+            username: u.username,
+            password: u.password
+           
         }
-      setTeam([...team, member])
+      setUser(member)
     }
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        newUser(user)
-        console.log(team)
-        setUser({first: '', last: '', email:''})
+    const validate = ({username, password}) => {
+        const errors = {}
+        if (username.length < 3){
+            errors.username = 'too short'
+        }
+        if (password.length < 3){
+            errors.password = 'not strong enough'
+        }
+        return errors;
     }
    
     return (
-        <div>
-           <form onSubmit={handleSubmit}>
-              <label>First Name:
-                <input onChange={handleChange} type='text' name='first' value={user.first}></input>  
+        <Formik initialValues={{username: '', password: ''}}
+        onSubmit={(values,tools) => { 
+            newUser(values)
+            console.log(user)
+            tools.resetForm()}
+        } validate={validate}
+        >
+           <Form>
+              <label>Username:
+                <Field type='text' name='username' placeholder='username'></Field>  
+                <ErrorMessage name='username' component='div' />
               </label> 
-              <label>Last Name:
-                <input onChange={handleChange} type='text' name='last' value={user.last}></input>
-              </label>
-              <label>Email:
-                <input onChange={handleChange} type='email' name='email' value={user.email}></input>
+              <label>Password:
+                <Field type='password' name='password' placeholder='password'></Field>
+                <ErrorMessage name='password' component='div'/>
               </label>
               <button type='submit'>Sumbit</button>
-           </form> 
-        </div>
+           </Form> 
+        </Formik>
     );
 };
 

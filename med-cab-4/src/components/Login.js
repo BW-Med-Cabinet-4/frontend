@@ -1,25 +1,42 @@
 import React, {useState} from 'react';
+import styled from 'styled-components'
+import {Formik, Form, ErrorMessage, Field} from 'formik'
 
-const Login = () => {
-    const [login, setLogin] = useState({
-        username: '',
-        password: ''
-    })
-    const handleChange= (e) => {
-        setLogin({...login,[e.target.name] : e.target.value})
-        console.log(login)
+
+const validate = ({username, password}) => {
+    const errors = {};
+    if (username.length < 3) {
+        errors.username = 'too short'
     }
+    if (password.length < 3){
+    errors.password = 'too short'
+    }
+    return errors;
+}
+
+const Login = (props) => {
+    const [login, setLogin] = useState([])
+ 
     return (
-        <div>
-           <form>
+        <Formik initialValues={{username: '', password: ''}}
+         onSubmit={(values, tools) => {
+            setLogin(values)
+            tools.resetForm()}}
+        
+         validate={validate}
+         >
+           <Form>
              <label>Username: 
-               <input onChange={handleChange} type='text' name='username'></input>   
+               <Field type='text' name='username' placeholder='username'></Field>
+               <ErrorMessage name='username' component='div'/>
              </label>  
              <label>Password: 
-               <input onChange={handleChange} type='text' name='password'></input>   
+               <Field type='text' name='password' placeholder='password'></Field>  
+               <ErrorMessage name='password' component='div'/>
              </label> 
-           </form> 
-        </div>
+             <button type='submit'>Login</button>
+           </Form> 
+        </Formik>
     );
 };
 
