@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import styled from 'styled-components'
 import {Formik, Form, ErrorMessage, Field} from 'formik'
 
@@ -16,11 +16,16 @@ const validate = ({username, password}) => {
 
 const Login = (props) => {
     const [login, setLogin] = useState([])
+
+    useEffect(() => {
+       console.log(login)
+    },[login])
  
     return (
         <Formik initialValues={{username: '', password: ''}}
          onSubmit={(values, tools) => {
             setLogin(values)
+            console.log(login)
             tools.resetForm()}}
         
          validate={validate}

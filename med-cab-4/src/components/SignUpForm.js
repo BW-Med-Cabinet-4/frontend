@@ -1,10 +1,14 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import styled from 'styled-components'
  import {Formik, Form, Field, ErrorMessage} from 'formik'
 
 const SignUpForm = () => {
 
     const [user, setUser] = useState([])
+
+    useEffect(() => {
+        console.log(user)    
+    }, [user])
 
     const newUser = u => {
         const member = {
@@ -29,18 +33,17 @@ const SignUpForm = () => {
     return (
         <Formik initialValues={{username: '', password: ''}}
         onSubmit={(values,tools) => { 
-            newUser(values)
-            console.log(user)
+            setUser(values)
             tools.resetForm()}
         } validate={validate}
         >
            <Form>
               <label>Username:
-                <Field type='text' name='username' placeholder='username'></Field>  
+                <Field type='text' name='username' placeholder='username' ></Field>  
                 <ErrorMessage name='username' component='div' />
               </label> 
               <label>Password:
-                <Field type='password' name='password' placeholder='password'></Field>
+                <Field type='password' name='password' placeholder='password' ></Field>
                 <ErrorMessage name='password' component='div'/>
               </label>
               <button type='submit'>Sumbit</button>
