@@ -6,6 +6,7 @@ import {Route} from 'react-router-dom'
 import Nav from './components/Nav'
 
 
+
 function App() {
   return (
     <div className="App">
@@ -16,6 +17,7 @@ function App() {
       <Route  exact path='/Login'>
       <Login/>
       </Route>
+      <footer>Copyright MedCab4 2020</footer>
     </div>
   );
 }
