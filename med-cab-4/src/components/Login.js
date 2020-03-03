@@ -10,21 +10,28 @@ const StyledDiv = styled.div`{
     height: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
-    background: navy;
+    background-image: linear-gradient(to right, navy, white, navy)
 }`
 
 const StyledCard = styled.div`{
     margin-top: 10%;
     display: flex;
-    border: 2px solid magenta;
     flex-direction: column;
+    box-shadow: 10px 10px 10px black;
     font-weight: bold;
     align-items: center;
     justify-content: center;
    height: 20%;
     width: 30%;
-    background-image: linear-gradient(to right, purple, lime, orange)
+    background-image: linear-gradient(to right, grey,  white)
+    
+    
    
+}`
+
+const H1 = styled.h3`{
+    text-align: center;
+    text-decoration: underline;
 }`
 
 
@@ -48,20 +55,21 @@ const Login = (props) => {
  
     return (
        
-    
         <Formik initialValues={{username: '', password: ''}}
          onSubmit={(values, tools) => {
             setLogin(values)
             tools.resetForm()}}
          validate={validate}
          >
+         
         <Form>
            
             <StyledDiv> 
+                
                 <Particles></Particles>
                 <Particles></Particles>
                 <StyledCard>
-                
+                <H1>Login</H1>
                 <label htmlFor='username'>Username:
                <ErrorMessage name='username' component='div'/>
                <Field id='username' name='username' type='text' placeholder='username'/>

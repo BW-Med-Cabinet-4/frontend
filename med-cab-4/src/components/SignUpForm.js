@@ -11,20 +11,20 @@ import styled from 'styled-components'
     height: 90vh;
     background-size: cover;
     background-repeat: no-repeat;
-    background: navy;
+    background-image: linear-gradient(to right, green, blue);
 }`
 
 const StyledCard = styled.div`{
     margin-top: 10%;
     display: flex;
     flex-direction: column;
+    box-shadow: 5px 5px 10px white;
     font-weight: bold;
     align-items: center;
     justify-content: center;
-   border: 2px solid lime;
    height: 20%;
     width: 30%;
-    background-image: linear-gradient(to right, purple, lime, orange)
+    background-image: linear-gradient(to right, grey, white, grey)
    
 }`
 

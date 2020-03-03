@@ -8,7 +8,7 @@ const NavDiv = styled.section`{
     justify-content: space-around;
     width: 100%;
     margin: 0 auto;
-    background-image: linear-gradient(to right, yellow, red)
+    background-image: linear-gradient(to right, black, grey)
 
     
 }`
