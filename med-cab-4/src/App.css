@@ -36,3 +36,15 @@
     transform: rotate(360deg);
   }
 }
+
+.nav-div {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  
+}
+.login-button {
+  width: 100px;
+  margin-top: 10px;
+  color: magenta;
+}
