@@ -160,7 +160,7 @@ const Register = (props) => {
       <Div>
       <h1>Welcome</h1>
       <h3>Hello, Please Register here.</h3>
-      <h3>Already have an account? Login <Link to=''>Here</Link></h3>
+      <h3>Already have an account? Login <Link to='/Login'>Here</Link></h3>
       </Div>
       <Form onSubmit={handleSubmit}>
         <FormGroup controlId="Username" bsSize="large">
