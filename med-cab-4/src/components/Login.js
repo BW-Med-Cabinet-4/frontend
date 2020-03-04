@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import styled from 'styled-components'
 import {Formik, Form, ErrorMessage, Field} from 'formik'
-import img from '../images/mj-vector.png'
 import Particles from 'react-particles-js'
+import axios from 'axios'
 
 const StyledDiv = styled.div`{
     display:flex;
@@ -10,7 +10,7 @@ const StyledDiv = styled.div`{
     height: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
-    background-image: linear-gradient(to right, navy, white, navy)
+    background-image: linear-gradient(to right, purple, navy, purple, navy)
 }`
 
 const StyledCard = styled.div`{
@@ -21,7 +21,7 @@ const StyledCard = styled.div`{
     font-weight: bold;
     align-items: center;
     justify-content: center;
-   height: 20%;
+   height: 30%;
     width: 30%;
     background-image: linear-gradient(to right, grey,  white)
     
@@ -38,10 +38,10 @@ const H1 = styled.h3`{
 const validate = ({username, password}) => {
     const errors = {};
     if (username.length < 3) {
-        errors.username = 'too short'
+        errors.username = 'username must be 3 characters'
     }
     if (password.length < 3){
-    errors.password = 'too short'
+    errors.password = 'password too weak'
     }
     return errors;
 }
@@ -50,7 +50,7 @@ const Login = (props) => {
     const [login, setLogin] = useState([])
 
     useEffect(() => {
-       console.log(login)
+      axios.get('https://medcabapi.herokuapp.com/').then(res => console.log(res)).catch(err => console.log(err))
     },[login])
  
     return (
@@ -63,24 +63,20 @@ const Login = (props) => {
          >
          
         <Form>
-           
             <StyledDiv> 
-                
                 <Particles></Particles>
                 <Particles></Particles>
                 <StyledCard>
                 <H1>Login</H1>
                 <label htmlFor='username'>Username:
-               <ErrorMessage name='username' component='div'/>
+               <ErrorMessage className='error' name='username' component='div'/>
                <Field id='username' name='username' type='text' placeholder='username'/>
                </label> 
                <label>Password:
                <Field id='password' type='password' name='password' placeholder='password'></Field>  
-               <ErrorMessage name='password' component='div'/>
+               <ErrorMessage className='error' name='password' component='div'/>
                </label>
-               
              <button className='login-button' type='submit'>Login</button>
-            
            </StyledCard>
            <Particles></Particles>
            <Particles></Particles>

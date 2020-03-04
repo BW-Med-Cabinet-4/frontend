@@ -4,6 +4,7 @@ import SignUpForm from './components/SignUpForm'
 import Login from './components/Login'
 import {Route} from 'react-router-dom'
 import Nav from './components/Nav'
+import Footer from './components/Footer'
 
 
 
@@ -17,7 +18,7 @@ function App() {
       <Route  exact path='/Login'>
       <Login/>
       </Route>
-      <footer>Copyright MedCab4 2020</footer>
+      <Footer/>
     </div>
   );
 }
