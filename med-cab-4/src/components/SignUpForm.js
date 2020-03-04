@@ -1,23 +1,44 @@
 import React, {useState, useEffect} from 'react';
 import styled from 'styled-components'
  import {Formik, Form, Field, ErrorMessage} from 'formik'
+ import img from '../images/weed.jpg'
+ import Particles from 'react-particles-js'
+ import axios from 'axios'
+
+ const StyledDiv = styled.div`{
+    display:flex;
+    justify-content: center;
+    height: 90vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background: navy;
+}`
+
+const StyledCard = styled.div`{
+    margin-top: 10%;
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    align-items: center;
+    justify-content: center;
+   border: 2px solid lime;
+   height: 20%;
+    width: 30%;
+    background-image: linear-gradient(to right, purple, lime, orange)
+   
+}`
+
+
 
 const SignUpForm = () => {
 
     const [user, setUser] = useState([])
 
     useEffect(() => {
-        console.log(user)    
+        axios.get('https://medcabinetbuild.herokuapp.com/').then(res => console.log(res)).catch(err => console.log(err))  
     }, [user])
 
-    const newUser = u => {
-        const member = {
-            username: u.username,
-            password: u.password
-           
-        }
-      setUser(member)
-    }
+ 
 
     const validate = ({username, password}) => {
         const errors = {}
@@ -32,23 +53,38 @@ const SignUpForm = () => {
    
     return (
         <Formik initialValues={{username: '', password: ''}}
-        onSubmit={(values,tools) => { 
-            setUser(values)
-            tools.resetForm()}
-        } validate={validate}
+        onSubmit={(values, tools) => {
+           setUser(values)
+           tools.resetForm()}}
+        validate={validate}
         >
-           <Form>
-              <label>Username:
-                <Field type='text' name='username' placeholder='username' ></Field>  
-                <ErrorMessage name='username' component='div' />
+       <Form>
+          
+           <StyledDiv> 
+               <Particles></Particles>
+               <Particles></Particles>
+               <StyledCard>
+               
+               <label htmlFor='username'>Username:
+              <ErrorMessage name='username' component='div'/>
+              <Field id='username' name='username' type='text' placeholder='username'/>
               </label> 
+              
               <label>Password:
-                <Field type='password' name='password' placeholder='password' ></Field>
-                <ErrorMessage name='password' component='div'/>
+              <Field id='password' type='password' name='password' placeholder='password'></Field>  
+              <ErrorMessage name='password' component='div'/>
               </label>
-              <button type='submit'>Sumbit</button>
-           </Form> 
-        </Formik>
+              
+            <button className='login-button' type='submit'>Login</button>
+            
+          </StyledCard>
+          <Particles></Particles>
+          <Particles></Particles>
+       </StyledDiv>
+       </Form> 
+       </Formik>
+       
+        
     );
 };
 
