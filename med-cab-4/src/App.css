@@ -40,11 +40,32 @@
 .nav-div {
   display: flex;
   justify-content: space-evenly;
+
   width: 100%;
   
 }
 .login-button {
   width: 100px;
   margin-top: 10px;
-  color: magenta;
+ 
+}
+.footer {
+  display: flex;
+  justify-content: center;
+  background-image: linear-gradient(to right, black, grey);
+  height: 5vh;
+  color: white;
+}
+.img-div {
+ 
+  display: flex;
+  align-items: center;
+  width: 20%;
+  justify-content: space-evenly;
+  color: white;
+  font-family: cursive;
+  font-weight: bold;
+}
+.error {
+  color: red;
 }
