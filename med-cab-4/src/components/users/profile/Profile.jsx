@@ -7,7 +7,7 @@ import Button from '@material-ui/core/Button';
 
 import {axiosWithAuth} from '../utilities/axiosWithAuth'
 import {UserIdContext} from '../contexts/UserIdContext'
-import Background from '../Images/background.PNG'
+import Background from '../../../background/background-login.jpg'
 
 
 
@@ -39,7 +39,7 @@ const BootstrapButton = withStyles({
     border: '1px solid',
     color: 'white',
     lineHeight: 1.5,
-    backgroundColor: '#171330',
+    backgroundColor: '#c4d4b4',
     borderColor: 'white',
     fontFamily: [
       '-apple-system',
@@ -55,7 +55,7 @@ const BootstrapButton = withStyles({
     ].join(','),
     '&:hover': {
       color:'white',
-      backgroundColor: '#EF019F',
+      backgroundColor: '#006400',
       borderColor: '#white',
       boxShadow: 'none',
     },
@@ -98,7 +98,7 @@ const Profile = (props) => {
     function handleUpdate(){
         console.log('this is state in update', state)
           axiosWithAuth()
-          .put(`https://spotify-buildweek.herokuapp.com/api/user/dashboard/${id}`, state)
+          .put(`https://medcabinetbuild.herokuapp.com/api/users/${id}`, state)
           .then(response => {
               console.log('this is update res',response)
           })

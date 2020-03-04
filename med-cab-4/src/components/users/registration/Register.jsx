@@ -38,7 +38,7 @@ const BootstrapButton = withStyles({
     border: '1px solid',
     color: 'white',
     lineHeight: 1.5,
-    backgroundColor: '#171330',
+    backgroundColor: '#c4d4b4',
     borderColor: 'white',
     fontFamily: [
       '-apple-system',
@@ -141,7 +141,7 @@ const Register = (props) => {
 
   function handleSubmit(event) {
     event.preventDefault();
-    axios.post('https://spotify-buildweek.herokuapp.com/api/auth/register', credentials)
+    axios.post('https://medcabinetbuild.herokuapp.com/api/auth/register', credentials)
     .then(res => {
   props.history.push('/login')
   console.log('this is register res',res)
