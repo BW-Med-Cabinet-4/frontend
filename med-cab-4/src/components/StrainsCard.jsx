@@ -1,14 +1,23 @@
 import React from 'react';
-
+import {
+    Card,
+    CardHeader,
+    CardFooter,
+    CardText,
+    Col
+  } from "reactstrap";
+  
 const StrainCard = (props) => {
     return (
-        <>
-            <h1>{props.strainName}</h1>
-            <h2>{props.strainType}</h2>
-            <h3>{props.effects}</h3>
-            <h3>{props.flavor}</h3>
-            <h4>{props.desc}</h4>
-        </>
+        <Col xs='6' md='3' xl='3'>
+            <Card>
+            <CardHeader>{props.strainName}</CardHeader>
+            <CardText>{props.strainType}</CardText>
+            <CardText>{props.effects}</CardText>
+            <CardText>{props.flavor}</CardText>
+            <CardFooter>{props.desc}</CardFooter>
+            </Card>
+        </Col>
     )
 }
 
