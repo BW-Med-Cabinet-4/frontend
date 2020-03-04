@@ -16,7 +16,7 @@ const Footer = () => {
         <P>
   <div class="content">
   </div>
-  <footer class="footer"> Copyright © 2020 Med Cabinet 4 </footer>
+  <footer class="footer"> Copyright © 2020 Med Cabinet </footer>
 </P>
     )
 }
