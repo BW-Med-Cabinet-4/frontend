@@ -1,23 +1,45 @@
 import React from 'react';
 import './App.css';
-import SignUpForm from './components/SignUpForm'
-import Login from './components/Login'
-import {Route} from 'react-router-dom'
-import Nav from './components/Nav'
+import { Route, Switch } from 'react-router-dom';
+import PrivateRoute from './utils/privateRoute';
+import { UserIdContext } from './utils/userIDcontext';
+import history from './utils/history';
 
+import Home from './components/Home';
+import Navigation from './components/navigation/Nav';
+import Profile from './components/users/profile/Profile';
+import Register from './components/users/registration/Register';
+import Login from './components/users/login/Login';
+import Footer from './components/footer/Footer';
 
 
 function App() {
+  const id = `${localStorage.getItem('id')}`
+  
   return (
     <div className="App">
-      <Nav/>
-      <Route exact path='/SignUp'>
-      <SignUpForm/>
-      </Route>
-      <Route  exact path='/Login'>
-      <Login/>
-      </Route>
-      <footer>Copyright MedCab4 2020</footer>
+      <UserIdContext.Provider value={id}>
+        <Switch>
+          <PrivateRoute exact path='/homepage'>
+            <Navigation/>
+            <Home/>
+          </PrivateRoute>
+          <PrivateRoute exact path='/profile'>
+            <Navigation/>
+            <Profile/>
+          </PrivateRoute>
+          <Route 
+            exact path='/SignUp' 
+            component={Register}>
+          </Route>
+          <Route  
+            exact path='' 
+            component={Login}
+          >
+          </Route>
+        </Switch>
+      </UserIdContext.Provider>
+      <Footer/>
     </div>
   );
 }
