@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import styled from 'styled-components'
  import {Formik, Form, Field, ErrorMessage} from 'formik'
- import img from '../images/weed.jpg'
  import Particles from 'react-particles-js'
  import axios from 'axios'
 
@@ -11,20 +10,20 @@ import styled from 'styled-components'
     height: 90vh;
     background-size: cover;
     background-repeat: no-repeat;
-    background: navy;
+    background-image: linear-gradient(to right, green, blue);
 }`
 
 const StyledCard = styled.div`{
     margin-top: 10%;
     display: flex;
     flex-direction: column;
+    box-shadow: 5px 5px 10px white;
     font-weight: bold;
     align-items: center;
     justify-content: center;
-   border: 2px solid lime;
-   height: 20%;
+   height: 30%;
     width: 30%;
-    background-image: linear-gradient(to right, purple, lime, orange)
+    background-image: linear-gradient(to right, grey, white, grey)
    
 }`
 
@@ -35,7 +34,7 @@ const SignUpForm = () => {
     const [user, setUser] = useState([])
 
     useEffect(() => {
-        axios.get('https://medcabinetbuild.herokuapp.com/').then(res => console.log(res)).catch(err => console.log(err))  
+        axios.post('https://medcabapi.herokuapp.com/api/auth/register', user).then(res => console.log(user)).catch(err => console.log(err))  
     }, [user])
 
  
@@ -45,8 +44,14 @@ const SignUpForm = () => {
         if (username.length < 3){
             errors.username = 'too short'
         }
+        else if (username.match(/[A-Z]/) === null){
+            errors.username = 'must include capital letter'
+        }
         if (password.length < 3){
-            errors.password = 'not strong enough'
+            errors.password = 'password must be 3 characters'
+        }
+        else if (password.match(/[0-9]/) === null) {
+            errors.password = 'must include number'
         }
         return errors;
     }
@@ -64,15 +69,15 @@ const SignUpForm = () => {
                <Particles></Particles>
                <Particles></Particles>
                <StyledCard>
-               
+               <h2>Sign Up</h2>
                <label htmlFor='username'>Username:
-              <ErrorMessage name='username' component='div'/>
+              <ErrorMessage className='error' name='username' component='div'/>
               <Field id='username' name='username' type='text' placeholder='username'/>
               </label> 
               
               <label>Password:
               <Field id='password' type='password' name='password' placeholder='password'></Field>  
-              <ErrorMessage name='password' component='div'/>
+              <ErrorMessage className='error' name='password' component='div'/>
               </label>
               
             <button className='login-button' type='submit'>Login</button>

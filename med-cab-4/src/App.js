@@ -1,9 +1,11 @@
 import React from 'react';
 import './App.css';
+
 import { Route, Switch } from 'react-router-dom';
 import PrivateRoute from './utils/privateRoute';
 import { UserIdContext } from './utils/userIDcontext';
 import history from './utils/history';
+
 
 import Home from './components/Home';
 import Navigation from './components/navigation/Nav';
@@ -18,6 +20,7 @@ function App() {
   
   return (
     <div className="App">
+
       <UserIdContext.Provider value={id}>
         <Switch>
           <PrivateRoute exact path='/homepage'>
@@ -39,6 +42,7 @@ function App() {
           </Route>
         </Switch>
       </UserIdContext.Provider>
+
       <Footer/>
     </div>
   );
