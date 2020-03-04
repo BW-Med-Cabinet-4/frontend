@@ -36,7 +36,7 @@ const BootstrapButton = withStyles({
     fontSize: 16,
     padding: '6px 12px',
     border: '1px solid',
-    color: 'white',
+    color: 'black',
     lineHeight: 1.5,
     backgroundColor: '#c4d4b4',
     borderColor: 'white',

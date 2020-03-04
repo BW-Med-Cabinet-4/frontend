@@ -4,7 +4,7 @@ export const axiosWithAuth = () => {
     const token = localStorage.getItem('token');
     return axios.create({
         // config object
-        baseURL: 'https://medcabinetbuild.herokuapp.com/api',
+        baseURL: 'https://medcabinetbuild.herokuapp.com/',
         headers: {
             Authorization: token,
         }

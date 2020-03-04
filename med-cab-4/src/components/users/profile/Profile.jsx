@@ -1,13 +1,13 @@
 import React, {useState, useContext} from 'react'
-import styled from 'styled-components'
+import styled from 'styled-components';
 import TextField from '@material-ui/core/TextField';
 import { FormGroup, FormControl, FormLabel } from "react-bootstrap";
 import { withStyles, makeStyles, } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 
-import {axiosWithAuth} from '../utilities/axiosWithAuth'
-import {UserIdContext} from '../contexts/UserIdContext'
-import Background from '../../../background/background-login.jpg'
+import {axiosWithAuth} from '../../../utils/axiosWithAuth';
+import {UserIdContext} from '../../../utils/userIDcontext';
+import Background from '../../../background/background-login.jpg';
 
 
 
@@ -98,7 +98,7 @@ const Profile = (props) => {
     function handleUpdate(){
         console.log('this is state in update', state)
           axiosWithAuth()
-          .put(`https://medcabinetbuild.herokuapp.com/api/users/${id}`, state)
+          .put(`api/users/${id}`, state)
           .then(response => {
               console.log('this is update res',response)
           })
