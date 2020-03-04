@@ -14,9 +14,9 @@ const P = styled.body`
 const Footer = () => {
     return (
         <P>
-  <div class="content">
+  <div className="content">
   </div>
-  <footer class="footer"> Copyright © 2020 Med Cabinet </footer>
+  <footer className="footer"> Copyright © 2020 Med Cabinet </footer>
 </P>
     )
 }

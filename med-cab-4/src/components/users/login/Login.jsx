@@ -138,7 +138,7 @@ const useStyles = makeStyles(theme => ({
 
     function handleSubmit(event) {
       event.preventDefault();
-      axios.post('https://medcabinetbuild.herokuapp.com/api/auth/login', credentials)
+      axios.post('https://medcabapi.herokuapp.com/api/auth/login', credentials)
       .then(res => {
         console.log(res)
         localStorage.setItem('token', res.data.token);

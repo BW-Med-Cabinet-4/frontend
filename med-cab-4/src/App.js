@@ -5,10 +5,10 @@ import PrivateRoute from './utils/privateRoute';
 import { UserIdContext } from './utils/userIDcontext';
 import history from './utils/history';
 
-import HomePage from './components/Home';
+import Home from './components/Home';
 import Navigation from './components/navigation/Nav';
 import Profile from './components/users/profile/Profile';
-import SignUp from './components/users/registration/Register';
+import Register from './components/users/registration/Register';
 import Login from './components/users/login/Login';
 import Footer from './components/footer/Footer';
 
@@ -22,17 +22,20 @@ function App() {
         <Switch>
           <PrivateRoute exact path='/homepage'>
             <Navigation/>
-            <HomePage/>
+            <Home/>
           </PrivateRoute>
           <PrivateRoute exact path='/profile'>
             <Navigation/>
             <Profile/>
           </PrivateRoute>
-          <Route exact path='/SignUp'>
-            <SignUp/>
+          <Route 
+            exact path='/SignUp' 
+            component={Register}>
           </Route>
-          <Route  exact path=''>
-            <Login/>
+          <Route  
+            exact path='' 
+            component={Login}
+          >
           </Route>
         </Switch>
       </UserIdContext.Provider>
