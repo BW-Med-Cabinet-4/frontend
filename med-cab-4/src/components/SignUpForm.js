@@ -85,7 +85,7 @@ const SignUpForm = (props) => {
               <ErrorMessage className='error' name='password' component='div'/>
               </label>
               
-            <button className='login-button' type='submit'>Login</button>
+            <button className='login-button' type='submit'>Sign Up</button>
             
           </StyledCard>
           <Particles></Particles>
