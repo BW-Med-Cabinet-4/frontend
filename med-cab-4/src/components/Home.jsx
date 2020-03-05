@@ -43,8 +43,11 @@ const Home = () => {
     
            <CusContainer>
             <Div>
-            <Form data={data} setData={setData} setInput={setInput} input={input}/>
-             <DropForm data={data} setData={setData}/>
+            <div className='form'>
+           <Form data={data} setData={setData} setInput={setInput} input={input}/> 
+           <DropForm data={data} setData={setData}/>
+           </div>
+             
         <Row>
           {
             data.map(strains => 
