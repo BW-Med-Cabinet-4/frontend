@@ -69,6 +69,9 @@
 .error {
   color: red;
 }
-.home {
-  border: 1px solid magenta;
+.form {
+  border: 1px solid pink;
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 30px;
 }
