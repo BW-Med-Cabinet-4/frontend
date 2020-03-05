@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import {Formik, Form, ErrorMessage, Field} from 'formik'
 import Particles from 'react-particles-js'
 import axios from 'axios'
+import { Link } from 'react-router-dom';
 
 const StyledDiv = styled.div`{
     display:flex;
@@ -21,7 +22,7 @@ const StyledCard = styled.div`{
     font-weight: bold;
     align-items: center;
     justify-content: center;
-   height: 30%;
+    height: 30%;
     width: 30%;
     background-image: linear-gradient(to right, grey,  white)
     
@@ -50,7 +51,14 @@ const Login = (props) => {
     const [login, setLogin] = useState([])
 
     useEffect(() => {
-      axios.get('https://medcabapi.herokuapp.com/').then(res => console.log(res)).catch(err => console.log(err))
+        axios.post('https://medcabapi.herokuapp.com/api/auth/login', login)
+        .then(res => {
+          console.log(res)
+          localStorage.setItem('token', res.data.token);
+          localStorage.setItem('id', res.data.id);
+          props.history.push('/homepage');
+        })
+        .catch(err => console.log(err));
     },[login])
  
     return (
@@ -58,7 +66,8 @@ const Login = (props) => {
         <Formik initialValues={{username: '', password: ''}}
          onSubmit={(values, tools) => {
             setLogin(values)
-            tools.resetForm()}}
+            tools.resetForm()}
+          }
          validate={validate}
          >
          
@@ -68,6 +77,8 @@ const Login = (props) => {
                 <Particles></Particles>
                 <StyledCard>
                 <H1>Login</H1>
+                <H1>Don't have an account?</H1>
+                <H1><h3><Link to='/register'>Here</Link></h3></H1>
                 <label htmlFor='username'>Username:
                <ErrorMessage className='error' name='username' component='div'/>
                <Field id='username' name='username' type='text' placeholder='username'/>
@@ -76,7 +87,7 @@ const Login = (props) => {
                <Field id='password' type='password' name='password' placeholder='password'></Field>  
                <ErrorMessage className='error' name='password' component='div'/>
                </label>
-             <button className='login-button' type='submit'>Login</button>
+             <button className='login-button' type='submit' >Login</button>
            </StyledCard>
            <Particles></Particles>
            <Particles></Particles>

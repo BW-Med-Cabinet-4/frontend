@@ -4,10 +4,12 @@ import {
     CardHeader,
     CardFooter,
     CardText,
-    Col
+    Col,
+    Button
   } from "reactstrap";
   
 const StrainCard = (props) => {
+   
     return (
         <Col xs='6' md='3' xl='3'>
             <Card>
@@ -16,6 +18,7 @@ const StrainCard = (props) => {
             <CardText>{props.effects}</CardText>
             <CardText>{props.flavor}</CardText>
             <CardFooter>{props.desc}</CardFooter>
+            <Button>Add</Button>
             </Card>
         </Col>
     )

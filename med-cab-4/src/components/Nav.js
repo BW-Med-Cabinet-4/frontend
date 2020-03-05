@@ -2,6 +2,7 @@ import React from 'react';
 import {NavLink} from 'react-router-dom'
 import styled from 'styled-components'
 import medical from '../images/mj-vector.png'
+import history from '../utils/history';
 
 const NavDiv = styled.nav`{
     display: flex;
@@ -29,6 +30,14 @@ const Himg = styled.img`{
 }`
 
 const Nav = () => {
+    const Logout =()=> {
+        {localStorage.removeItem('id')}
+        {localStorage.removeItem('token')}
+        history.go('')
+        }
+        console.log('this is props in navigation', history)
+   
+   
     return (
         <NavDiv>
         
@@ -37,9 +46,11 @@ const Nav = () => {
         <Himg src={medical}/>
         </div>
         <div className='nav-div'>
-         <StyledNav activeClassName='active' to='/SignUp'>Sign Up</StyledNav>
+         <StyledNav activeClassName='active' to=''>Sign Up</StyledNav>
          <StyledNav activeClassName='active' to='/login'>Login</StyledNav>
          <StyledNav to='/strains'>Strains</StyledNav>
+         <StyledNav to='/profile'>Profile</StyledNav>
+         <StyledNav onClick={Logout}> Log Out </StyledNav>
          </div>
         </NavDiv>
     );
