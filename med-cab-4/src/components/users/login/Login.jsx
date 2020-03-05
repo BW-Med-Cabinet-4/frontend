@@ -160,7 +160,7 @@ const useStyles = makeStyles(theme => ({
         <Div>
           <h1>Welcome</h1>
           <h3>Hello, Welcome back please log in.</h3>
-          <h3>New user Register <Link to='/SignUp'>Here</Link></h3>
+          <h3>New user Register <Link to='/register'>Here</Link></h3>
         </Div>
         <Form onSubmit={handleSubmit}>
           <FormGroup controlId="Username" bsSize="large">

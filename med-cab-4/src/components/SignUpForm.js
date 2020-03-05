@@ -29,12 +29,17 @@ const StyledCard = styled.div`{
 
 
 
-const SignUpForm = () => {
+const SignUpForm = (props) => {
 
     const [user, setUser] = useState([])
 
     useEffect(() => {
-        axios.post('https://medcabapi.herokuapp.com/api/auth/register', user).then(res => console.log(user)).catch(err => console.log(err))  
+        axios.post('https://medcabapi.herokuapp.com/api/auth/register', user)
+        .then(res => {
+            props.history.push('/login');
+            console.log('this is register res',res)
+        })
+        .catch(err => console.log(err))  
     }, [user])
 
  
