@@ -55,7 +55,8 @@ const Login = (props) => {
         .then(res => {
           console.log(res)
           localStorage.setItem('token', res.data.token);
-          localStorage.setItem('id', res.data.id);
+          localStorage.setItem('id', res.data.user_id);
+          localStorage.setItem('username', res.data.username);
           props.history.push('/homepage');
         })
         .catch(err => console.log(err));

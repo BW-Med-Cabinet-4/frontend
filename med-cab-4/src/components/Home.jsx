@@ -49,6 +49,7 @@ const Home = () => {
           {
             data.map(strains => 
                     <StrainCard
+                        strain_id={strains.strain_id}
                         strainName={strains.strain_name}
                         strainType={strains.strain_type}
                         effects={strains.effects}
