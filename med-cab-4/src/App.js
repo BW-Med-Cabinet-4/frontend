@@ -13,6 +13,7 @@ import Profile from './components/users/profile/Profile';
 import Register from './components/users/registration/Register';
 import Login from './components/users/login/Login';
 import Footer from './components/footer/Footer';
+import Nav from './components/Nav'
 
 // import Navigation from './components/Nav';
 // import Register from './components/SignUpForm';
@@ -29,11 +30,11 @@ function App() {
       <UserIdContext.Provider value={id}>
         <Switch>
           <PrivateRoute exact path='/homepage'>
-            <Navigation/>
+            <Nav/>
             <Home/>
           </PrivateRoute>
           <PrivateRoute exact path='/profile'>
-            <Navigation/>
+            <Nav/>
             <Profile/>
           </PrivateRoute>
           <Route 
