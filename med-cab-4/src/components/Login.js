@@ -50,7 +50,14 @@ const Login = (props) => {
     const [login, setLogin] = useState([])
 
     useEffect(() => {
-      axios.get('https://medcabapi.herokuapp.com/').then(res => console.log(res)).catch(err => console.log(err))
+        axios.post('https://medcabapi.herokuapp.com/api/auth/login', login)
+        .then(res => {
+          console.log(res)
+          localStorage.setItem('token', res.data.token);
+          localStorage.setItem('id', res.data.id);
+          props.history.push('/homepage');
+        })
+        .catch(err => console.log(err));
     },[login])
  
     return (
