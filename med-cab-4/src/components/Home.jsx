@@ -11,11 +11,11 @@ const Div = styled.div`{
   
 }`
 
-const CusContainer = styled(Container)`{
-    margin-top: 2%;
-    background-image: url(https://images.unsplash.com/photo-1536819114556-1e10f967fb61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60)
+// const CusContainer = styled(Container)`{
+//     margin-top: 2%;
+//     background-image: url(https://images.unsplash.com/photo-1536819114556-1e10f967fb61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60)
     
-}`
+// }`
 
 
 
@@ -45,8 +45,8 @@ const Home = () => {
     return (
       
     
-           <CusContainer>
-            <Div>
+        //    <CusContainer>
+            <div className='custom-container'>
             <div className='form'>
            <Form data={data} setData={setData} setInput={setInput} input={input}/> 
            <DropForm data={data} setData={setData}/>
@@ -66,8 +66,8 @@ const Home = () => {
                 )
         } 
         </Row> 
-        </Div>
-        </CusContainer>
+        </div>
+        // </CusContainer>
        
         
     );
