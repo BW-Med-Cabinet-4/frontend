@@ -13,12 +13,12 @@ const StrainCard = (props) => {
     return (
         <Col xs='6' md='3' xl='3'>
             <Card>
-            <CardHeader>{props.strainName}</CardHeader>
-            <img alt='randomPic' src={`http://www.evatar.io/${props.strain_id}`}/>
-            <CardText>{props.strainType}</CardText>
-            <CardText>{props.effects}</CardText>
-            <CardText>{props.flavor}</CardText>
-            <CardFooter>{props.desc}</CardFooter>
+            <CardHeader><strong>Name: </strong>{props.strainName}</CardHeader>
+            <CardText><strong>Type: </strong>{props.strainType}</CardText>
+            <CardText> <strong>Effects: </strong>{props.effects}</CardText>
+            <CardText><strong>Flavor: </strong>{props.flavor}</CardText>
+            <CardFooter><strong>Description: </strong>{props.desc}</CardFooter>
+            <Button>Add</Button>
             </Card>
         </Col>
     )

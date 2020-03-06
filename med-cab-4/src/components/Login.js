@@ -4,6 +4,7 @@ import {Formik, Form, ErrorMessage, Field} from 'formik'
 import Particles from 'react-particles-js'
 import axios from 'axios'
 import { Link } from 'react-router-dom';
+import {Button} from 'reactstrap';
 
 const StyledDiv = styled.div`{
     display:flex;
@@ -88,7 +89,7 @@ const Login = (props) => {
                <Field id='password' type='password' name='password' placeholder='password'></Field>  
                <ErrorMessage className='error' name='password' component='div'/>
                </label>
-             <button className='login-button' type='submit' >Login</button>
+             <Button className='login-button' type='submit' >Login</Button>
            </StyledCard>
            <Particles></Particles>
            <Particles></Particles>

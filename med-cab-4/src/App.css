@@ -69,6 +69,11 @@
 .error {
   color: red;
 }
-.home {
-  border: 1px solid magenta;
+.form {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 30px;
+  width: 100%;
+  background-image: linear-gradient(to right, black,grey)
 }
