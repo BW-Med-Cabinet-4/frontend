@@ -1,7 +1,7 @@
 [build]
   command = "npm run build"
-  publish="path-to-react-app/build"
-  base = "path-to-react-app"
+  publish="med-cab-4/build"
+  base = "med-cab-4-app"
 
   [[redirects]]
   from = "/*"
