@@ -21,6 +21,11 @@ import Footer from './components/footer/Footer';
  import Login from './components/Login';
 // import Footer from './components/Footer';
 
+// import Navigation from './components/Nav';
+// import Register from './components/SignUpForm';
+// import Login from './components/Login';
+// import Footer from './components/Footer';
+
 
 function App() {
   const id = `${localStorage.getItem('id')}`
@@ -46,8 +51,11 @@ function App() {
           </PrivateRoute>
           <Route 
             exact path='/register' 
-            component={Register}
-          >
+
+            component={Register}>
+
+        
+
           </Route>
           <Route  
             exact path='' 
