@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {Button} from 'reactstrap'
 
 const DropForm = (props) => {
 
@@ -16,7 +17,7 @@ const DropForm = (props) => {
               <option value='sativa'>Sativa</option>
               <option value='hybrid'>Hybrid</option>
           </select>
-          <button type='submit'>Submit</button>
+          <Button color='primary' type='submit'>Submit</Button>
         </form>
     );
 };

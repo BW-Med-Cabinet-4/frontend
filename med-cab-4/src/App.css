@@ -70,8 +70,10 @@
   color: red;
 }
 .form {
-  border: 1px solid pink;
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
   margin-bottom: 30px;
+  width: 100%;
+  background-image: linear-gradient(to right, black,grey)
 }
