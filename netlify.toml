@@ -1,9 +1,5 @@
 [build]
-  command = "npm run build"
-  publish="med-cab-4/build"
-  base = "med-cab-4-app"
+base = "med-cab-4/"
+publish = "build/"
+command = "npm run build"
 
-  [[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
