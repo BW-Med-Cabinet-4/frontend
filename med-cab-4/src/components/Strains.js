@@ -6,16 +6,6 @@ import { axiosWithAuth } from '../utils/axiosWithAuth';
 
 
 const Strains = () => {
-    useEffect(()=> {
-        axiosWithAuth().post(`api/strains`)
-        .then(response => {
-        console.log(response.data)
-        })
-        .catch(error => {
-        console.error('Server Error', error);
-        });
-
-    },[])
 
     const [strain, setStrain] = useState({
         strain_name: '',
@@ -29,8 +19,23 @@ const Strains = () => {
         setStrain({...strain, [e.target.name] : e.target.value})
         console.log(strain)
     }
+    function handleSubmit(event) {
+     
+            event.preventDefault();
+            axiosWithAuth().put(`api/strains`,strain)
+            .then(response => {
+            console.log(response.data)
+            })
+            .catch(error => {
+            console.error('Server Error', error);
+            });
+    
+     
+    }
     return (
         <div>
+            <p>Knowing a new Stain?</p>
+            <p>Help us create more list</p>
            <form>
                <label>Strain Name:
                <input onChange={handleChange} name='strain_name' type='text' placeholder='strain name'></input>
@@ -44,6 +49,7 @@ const Strains = () => {
                <label>Flavors:
                <input onChange={handleChange} name='flavors' type='text' placeholder='flavors'></input>
                </label>
+               <button onSubmit={handleSubmit}> Add </button>
            </form> 
         </div>
     );

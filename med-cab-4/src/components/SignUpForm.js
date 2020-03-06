@@ -4,6 +4,7 @@ import styled from 'styled-components'
  import Particles from 'react-particles-js'
  import axios from 'axios'
  import {Button} from 'reactstrap'
+ import { Link } from 'react-router-dom';
 
  const StyledDiv = styled.div`{
     display:flex;
