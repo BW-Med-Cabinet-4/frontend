@@ -1,10 +1,17 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import './App.css';
-
+import {axiosWithAuth} from './utils/axiosWithAuth';
 import { Route, Switch } from 'react-router-dom';
 import PrivateRoute from './utils/privateRoute';
 import { UserIdContext } from './utils/userIDcontext';
 import history from './utils/history';
+
+import SavedList from "../src/components/Strains/SavedList";
+import StrainList from "../src/components/Strains/StrainList";
+import Strain from "../src/components/Strains/Strain";
+import StrainUpdate from '../src/components/Strains/StrainUpdate'
+import axios from 'axios'
+
 
 
 import Home from './components/Home';
@@ -26,6 +33,22 @@ import Footer from './components/footer/Footer';
 function App() {
   const id = `${localStorage.getItem('id')}`
   
+  const [savedList, setSavedList] = useState([]);
+  const [items, setItems] = useState([]);
+  useEffect(() => {
+    axiosWithAuth()
+      .get('/api/strains')
+      .then(res => setItems(res.data))
+      .catch(error => console.log(error));
+  },[]);
+
+  const addToSavedList = strain => {
+    setSavedList([...savedList, strain]);
+  };
+
+
+
+
   return (
     <div className="App">
       <UserIdContext.Provider value={id}>
@@ -35,14 +58,30 @@ function App() {
             <Home/>
             <Footer/>
           </PrivateRoute>
+
+          <PrivateRoute exact path='/saved'>
+            <Navigation/>
+            <SavedList/>
+            <Footer/>
+          </PrivateRoute>
+
+          <PrivateRoute exact path="/strainLists" component= {StrainList} >
+          </PrivateRoute>
+          <PrivateRoute exact path ="/update-strain/:id" render ={props => {
+            return <StrainUpdate {...props} items={items} setItems={setItems}/>;
+          }}
+          >
+          </PrivateRoute>
+          <PrivateRoute 
+            path="/strains/:id"
+            render={props => {
+                    return <Strain {...props} addToSavedList={addToSavedList} />;
+                    }}
+          >
+          </PrivateRoute>
           <PrivateRoute exact path='/profile'>
             <Navigation/>
             <Profile/>
-            <Footer/>
-          </PrivateRoute>
-          <PrivateRoute exact path='/strains'>
-            <Navigation/>
-            <Strains/>
             <Footer/>
           </PrivateRoute>
           <Route 

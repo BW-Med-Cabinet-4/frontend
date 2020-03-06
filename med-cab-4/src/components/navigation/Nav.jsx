@@ -79,8 +79,9 @@ const Navigation = (props) => {
             </div>
             <div className='nav-div'>
                 <StyledNav exact to='/homepage' className='loginNavigation'> Home  </StyledNav>
-                <StyledNav exact to='/strains' className='loginNavigation'> Strains </StyledNav>
+                <StyledNav exact to='/strainLists' className='loginNavigation'> Strains </StyledNav>
                 <StyledNav exact to='/profile' className='loginNavigation'> Profile </StyledNav>
+                <StyledNav exact to='/saved' className='loginNavigation'> Saved </StyledNav>
                 <StyledNav><a href='https://www.leafly.com/' className='loginNavigation'> Marketing Page </a></StyledNav>
                 <StyledNav onClick={Logout} exact to=''> Log Out </StyledNav>
             </div>

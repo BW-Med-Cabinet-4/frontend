@@ -5,6 +5,7 @@ import {Row, Container, Button} from 'reactstrap'
 import styled from 'styled-components'
 import Form from './Form'
 import DropForm from './DropForm'
+import { Link } from "react-router-dom";
 
 
 const Div = styled.div`{
@@ -57,12 +58,8 @@ const Home = () => {
           {
             data.map(strains => 
                     <StrainCard
-                        strain_id={strains.strain_id}
-                        strainName={strains.strain_name}
-                        strainType={strains.strain_type}
-                        effects={strains.effects}
-                        flavor={strains.flavor}
-                        desc={strains.strain_desc}
+                        key={strains.strain_id}
+                        strains={strains}
                     />
                 )
         } 
@@ -73,5 +70,6 @@ const Home = () => {
         
     );
 };
+
 
 export default Home;

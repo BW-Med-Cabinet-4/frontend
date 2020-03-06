@@ -16,7 +16,7 @@ const AilmentCard = (props) => {
     
     function handleDelete(event) {
         event.preventDefault();
-        axiosWithAuth().delete(`/api/ailments/${state.id}`)
+        axiosWithAuth().delete(`/api/ailments/${props.id}`)
         .then(res => {
             console.log('this is', res.data)
         })
