@@ -3,7 +3,7 @@ import { axiosWithAuth } from '../utils/axiosWithAuth';
 
 const Strains = () => {
     useEffect(()=> {
-        axiosWithAuth().get(`api/users/12/ailments`)
+        axiosWithAuth().post(`api/strains`)
         .then(response => {
         console.log(response.data)
         })

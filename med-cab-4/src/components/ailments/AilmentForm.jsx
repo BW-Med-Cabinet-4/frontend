@@ -11,8 +11,8 @@ import {
   Input,
   FormText
 } from "reactstrap";
-import { addAilment } from "./ailmentsSlice";
 import axios from 'axios';
+import { addAilment } from "./ailmentsSlice";
 
 const AilmentForm = ({ values, errors, touched, status, handleChange }) => {
   const dispatch = useDispatch();
@@ -115,13 +115,7 @@ const AilmentForm = ({ values, errors, touched, status, handleChange }) => {
             Submit
           </Button>
 
-          <hr/>
-          <h4 style={{margin: '1rem 0'}}>Recommended strain ids</h4>
-          <h4>{`${strainIds['0']}, ${strainIds['1']}, ${strainIds['2']}, ${strainIds['3']}, ${strainIds['4']}`}</h4>  
-          <h4 style={{margin: '1rem 0'}}>
-            {`... can be looked up `}
-            <a href="https://www.kaggle.com/nvisagan/cannabis-strains-features">HERE</a>
-            </h4>
+          
         </Form>
       </div>
     </>
@@ -158,3 +152,14 @@ export default withFormik({
       .catch(err => console.log(err.message));
   }
 })(AilmentForm);
+
+function formatAilment(ailmentName, severity, description){
+  let str = `${severity.toLowerCase()}%20${ailmentName.toLowerCase()}`;
+  const punctuationlessDesc = description.replace(/[.,\/#!$%\^&\*;:{}=\-_?`~()]/g," ");
+  var descString = punctuationlessDesc.replace(/\s{2,}/g," ");
+  let splitDesc = descString.trim().split(/\.| /);
+  splitDesc.forEach((word) => {
+    str += `%20${word.toLowerCase()}`
+  })
+  return str;
+}

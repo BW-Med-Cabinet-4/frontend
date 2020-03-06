@@ -3,6 +3,7 @@ import styled from 'styled-components'
  import {Formik, Form, Field, ErrorMessage} from 'formik'
  import Particles from 'react-particles-js'
  import axios from 'axios'
+ import { Link } from 'react-router-dom';
 
  const StyledDiv = styled.div`{
     display:flex;
@@ -75,6 +76,8 @@ const SignUpForm = (props) => {
                <Particles></Particles>
                <StyledCard>
                <h2>Sign Up</h2>
+               <h3>Already have an account?</h3>
+               <h3><Link to=''>Here</Link></h3>
                <label htmlFor='username'>Username:
               <ErrorMessage className='error' name='username' component='div'/>
               <Field id='username' name='username' type='text' placeholder='username'/>

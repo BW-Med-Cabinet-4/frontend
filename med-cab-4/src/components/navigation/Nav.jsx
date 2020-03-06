@@ -68,7 +68,7 @@ const Navigation = (props) => {
     const Logout =()=> {
         {localStorage.removeItem('id')}
         {localStorage.removeItem('token')}
-        history.go('')
+        history.push('')
         }
         console.log('this is props in navigation', history)
     return (
@@ -82,7 +82,7 @@ const Navigation = (props) => {
                 <StyledNav exact to='/strains' className='loginNavigation'> Strains </StyledNav>
                 <StyledNav exact to='/profile' className='loginNavigation'> Profile </StyledNav>
                 <StyledNav><a href='https://www.leafly.com/' className='loginNavigation'> Marketing Page </a></StyledNav>
-                <StyledNav onClick={Logout}> Log Out </StyledNav>
+                <StyledNav onClick={Logout} exact to=''> Log Out </StyledNav>
             </div>
         </NavDiv>
     )

@@ -11,6 +11,7 @@ import Home from './components/Home';
 import Navigation from './components/navigation/Nav';
 import Profile from './components/users/profile/Profile';
 import Strains from './components/Strains'
+//import { Ailments } from './components/ailments/Ailments';
 //import Register from './components/users/registration/Register';
 //import Login from './components/users/login/Login';
 import Footer from './components/footer/Footer';

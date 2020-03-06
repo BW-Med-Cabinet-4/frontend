@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
     Card,
     CardHeader,
@@ -19,7 +19,6 @@ const StrainCard = (props) => {
             <CardText>{props.effects}</CardText>
             <CardText>{props.flavor}</CardText>
             <CardFooter>{props.desc}</CardFooter>
-            <Button>Add</Button>
             </Card>
         </Col>
     )
