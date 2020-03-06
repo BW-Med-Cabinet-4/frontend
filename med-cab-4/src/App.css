@@ -70,8 +70,41 @@
   color: red;
 }
 .form {
-  border: 1px solid pink;
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
   margin-bottom: 30px;
+  width: 100%;
+  background-image: linear-gradient(to right, black,grey)
+}
+.strain {
+  border: 1px solid lime;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+  margin: 0 auto;
+  height: 50vh;
+  margin-top: 10%;
+  background-image: url(https://images.unsplash.com/photo-1519181236443-b175d4c3ca1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60)
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid purple;
+  height: 400px;
+  width: 50%;
+  background-image: linear-gradient(to right, grey, white, grey)
+
+}
+.label {
+  margin-right: 20px;
+}
+.custom-container {
+  border: 1px solid red;
+  margin-top: 5%;
+  width: 60%;
+  margin: 5% auto;
+  background-image: linear-gradient(to right, grey, black, grey)
 }

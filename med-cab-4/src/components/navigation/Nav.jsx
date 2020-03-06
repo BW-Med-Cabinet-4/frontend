@@ -81,7 +81,7 @@ const Navigation = (props) => {
                 <StyledNav exact to='/homepage' className='loginNavigation'> Home  </StyledNav>
                 <StyledNav exact to='/strains' className='loginNavigation'> Strains </StyledNav>
                 <StyledNav exact to='/profile' className='loginNavigation'> Profile </StyledNav>
-                <StyledNav><a href='#' className='loginNavigation'> Marketing Page </a></StyledNav>
+                <StyledNav><a href='https://www.leafly.com/' className='loginNavigation'> Marketing Page </a></StyledNav>
                 <StyledNav onClick={Logout}> Log Out </StyledNav>
             </div>
         </NavDiv>

@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import medical from '../images/mj-vector.png'
 import history from '../../utils/history';
 
+
 const NavDiv = styled.nav`{
     display: flex;
     justify-content: space-around;

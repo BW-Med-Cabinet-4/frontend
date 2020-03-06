@@ -3,6 +3,9 @@ import styled from 'styled-components'
 import {Formik, Form, ErrorMessage, Field} from 'formik'
 import Particles from 'react-particles-js'
 import axios from 'axios'
+import { Link } from 'react-router-dom';
+import {Button} from 'reactstrap';
+// import useForm from './useForm'
 
 const StyledDiv = styled.div`{
     display:flex;
@@ -21,7 +24,7 @@ const StyledCard = styled.div`{
     font-weight: bold;
     align-items: center;
     justify-content: center;
-   height: 30%;
+    height: 30%;
     width: 30%;
     background-image: linear-gradient(to right, grey,  white)
     
@@ -33,6 +36,7 @@ const H1 = styled.h3`{
     text-align: center;
     text-decoration: underline;
 }`
+
 
 
 const validate = ({username, password}) => {
@@ -65,7 +69,8 @@ const Login = (props) => {
         <Formik initialValues={{username: '', password: ''}}
          onSubmit={(values, tools) => {
             setLogin(values)
-            tools.resetForm()}}
+            tools.resetForm()}
+          }
          validate={validate}
          >
          
@@ -75,6 +80,8 @@ const Login = (props) => {
                 <Particles></Particles>
                 <StyledCard>
                 <H1>Login</H1>
+                <H1>Don't have an account?</H1>
+                <H1><h3><Link to='/register'>Here</Link></h3></H1>
                 <label htmlFor='username'>Username:
                <ErrorMessage className='error' name='username' component='div'/>
                <Field id='username' name='username' type='text' placeholder='username'/>
@@ -83,7 +90,7 @@ const Login = (props) => {
                <Field id='password' type='password' name='password' placeholder='password'></Field>  
                <ErrorMessage className='error' name='password' component='div'/>
                </label>
-             <button className='login-button' type='submit'>Login</button>
+             <Button className='login-button' type='submit' >Login</Button>
            </StyledCard>
            <Particles></Particles>
            <Particles></Particles>

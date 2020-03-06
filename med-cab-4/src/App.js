@@ -10,10 +10,16 @@ import history from './utils/history';
 import Home from './components/Home';
 import Navigation from './components/navigation/Nav';
 import Profile from './components/users/profile/Profile';
-import Register from './components/users/registration/Register';
-import Login from './components/users/login/Login';
+import Strains from './components/Strains'
+//import Register from './components/users/registration/Register';
+//import Login from './components/users/login/Login';
 import Footer from './components/footer/Footer';
-import Nav from './components/Nav'
+//import Nav from './components/Nav'
+
+// import Navigation from './components/Nav';
+ import Register from './components/SignUpForm';
+ import Login from './components/Login';
+// import Footer from './components/Footer';
 
 // import Navigation from './components/Nav';
 // import Register from './components/SignUpForm';
@@ -26,20 +32,30 @@ function App() {
   
   return (
     <div className="App">
-
       <UserIdContext.Provider value={id}>
         <Switch>
           <PrivateRoute exact path='/homepage'>
-            <Nav/>
+            <Navigation/>
             <Home/>
+            <Footer/>
           </PrivateRoute>
           <PrivateRoute exact path='/profile'>
-            <Nav/>
+            <Navigation/>
             <Profile/>
+            <Footer/>
+          </PrivateRoute>
+          <PrivateRoute exact path='/strains'>
+            <Navigation/>
+            <Strains/>
+            <Footer/>
           </PrivateRoute>
           <Route 
             exact path='/register' 
+
             component={Register}>
+
+        
+
           </Route>
           <Route  
             exact path='' 
@@ -48,10 +64,9 @@ function App() {
           </Route>
         </Switch>
       </UserIdContext.Provider>
-
-      <Footer/>
     </div>
   );
+
 }
 
 export default App;

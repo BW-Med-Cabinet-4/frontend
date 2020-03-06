@@ -1,4 +1,10 @@
 import React from 'react';
+import {Button} from 'reactstrap'
+import styled from 'styled-components'
+
+const NewButton = styled(Button)`{
+    margin-left: 15px;
+}`
 
 const Form = (props) => {
 
@@ -14,7 +20,7 @@ const Form = (props) => {
         <input onChange={(e) =>{ 
             console.log(props.input)
             props.setInput(e.target.value)}} type='text' placeholder='search by strain'></input>
-        <button  type='submit'>Search by Strain</button>
+        <NewButton color='danger' type='submit'>Search by Strain</NewButton>
        </form>
         
     );
